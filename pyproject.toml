@@ -34,3 +34,4 @@ include = ["maa_autoboot*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
