@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maa-autoboot"
+version = "1.0.0"
+description = "MAA / MAAEnd 开机自启动管理器 —— 带 GUI，可选择自启动 MAA、MAAEnd 或两者"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "MaaAutoBoot Contributors" }]
+keywords = ["MAA", "MAAEnd", "autostart", "startup", "明日方舟", "终末地"]
+classifiers = [
+    "Environment :: Win32 (MS Windows)",
+    "Environment :: X11 Applications",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Desktop Environment",
+]
+# 零第三方运行时依赖：仅使用 Python 标准库（tkinter / json / winreg 等）
+
+[project.scripts]
+maa-autoboot = "maa_autoboot.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+include = ["maa_autoboot*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
